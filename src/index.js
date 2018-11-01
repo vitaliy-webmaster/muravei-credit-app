@@ -8,13 +8,15 @@ import "./index.scss";
 import App from "./App";
 import rootReducer from "./reducers/rootReducer";
 
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
 	rootReducer,
 	{},
-	compose(
-		applyMiddleware(reduxThunk),
-		window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-);
+	composeEnhancers(
+		applyMiddleware(reduxThunk)
+	));
 
 ReactDOM.render(
 	<Provider store={store}>

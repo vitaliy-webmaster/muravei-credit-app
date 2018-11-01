@@ -1,15 +1,8 @@
-import { SET_ANSWER } from "../actionCreators/types";
+import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
+import dataReducer from "./dataReducer";
 
-const initialState = {};
-
-export default (state = initialState, action) => {
-	switch (action.type) {
-		case SET_ANSWER:
-			return {
-				...state,
-				data: action.payload
-			};
-		default:
-			return state;
-	}
-};
+export default combineReducers({
+	data: dataReducer,
+	form: formReducer
+});

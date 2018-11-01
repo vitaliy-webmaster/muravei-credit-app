@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 
-class MyButton extends Component {
+class StepIndicator extends Component {
 	render() {
 		return (
-			<div className={`my-button ${this.props.myClass} ${this.props.isEnabled ? "my-button-enabled" : ""}`}
+			<div className={`step-indicator-item ${this.props.isEnabled ? "indicator-enabled" : ""}`}
 					 onClick={() => {
 						 if (this.props.isEnabled) {
 							 this.props.history.push(this.props.linkTo);
 						 }
 					 }}
 			>
-				<span>{this.props.text}</span>
+				{this.props.children}
 			</div>
 		);
 	}
 }
 
-export default withRouter(MyButton);
+export default withRouter(StepIndicator);
