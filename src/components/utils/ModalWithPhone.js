@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import ModalWindow from "./ModalWindow";
 import { connect } from "react-redux";
-import { destroy, Field, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
+import { createTextMask } from "redux-form-input-masks";
 import { closeDataAgreement, closeModalWithPhone, openDataAgreement } from "../../actionCreators/modalActions";
 import MySubmitButton from "./MySubmitButton";
 
 
 class ModalWithPhone extends Component {
+
+	RENDER_SCENARIO = window.app && window.app.env.INITIAL_RENDER_SCENARIO;
 
 	handleModalClose = () => {
 		this.props.closeModalWithPhone();
@@ -14,7 +17,13 @@ class ModalWithPhone extends Component {
 	};
 
 	onAgreementCloseClick = () => {
-		this.props.closeDataAgreement("modalWithPhone");
+		if (this.RENDER_SCENARIO === "THIRD") {
+			this.props.closeModalWithPhone().then(nextState => {
+				this.props.closeDataAgreement("modalWithPhone");
+			});
+		} else {
+			this.props.closeDataAgreement("modalWithPhone");
+		}
 	};
 
 	onAgreementLinkClick = () => {
@@ -36,7 +45,12 @@ class ModalWithPhone extends Component {
 	);
 
 	renderModalWithPhone = () => {
-		const { handleSubmit, submitting, valid, destroy } = this.props;
+		const { handleSubmit, submitting, valid } = this.props;
+
+		const phoneMask = createTextMask({
+			pattern: "+7 (999) 999-99-99",
+			guide: true
+		});
 
 		return (
 			<div className="modal-with-phone">
@@ -60,7 +74,8 @@ class ModalWithPhone extends Component {
 
 					<form noValidate onSubmit={handleSubmit}>
 						<Field name='name' component={this.renderField} type='text' placeholder="Ваше имя" />
-						<Field name='phone' component={this.renderField} type='number' placeholder="Ваш номер телефона" />
+						<Field name='phone' component={this.renderField} type='tel'
+									 placeholder="Ваш номер телефона" {...phoneMask} />
 						<MySubmitButton text="Отправить" isEnabled={(!submitting) && valid} />
 					</form>
 
@@ -161,7 +176,8 @@ class ModalWithPhone extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	modals: state.modals
+	modals: state.modals,
+	form: state.form
 });
 
 const validate = values => {
@@ -173,7 +189,7 @@ const validate = values => {
 	}
 	if (!values.phone) {
 		errors.phone = "Пожалуйста, введите номер телефона";
-	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.phone)) {
+	} else if (values.phone.length < 10) {
 		errors.phone = "Неверный формат ввода";
 	}
 	return errors;

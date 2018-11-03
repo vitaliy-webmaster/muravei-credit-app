@@ -7,14 +7,24 @@ import {
 } from "./types";
 
 export const closeModalWithPhone = () => {
-	return {
-		type: CLOSE_MODAL_WITH_PHONE
+	return (dispatch, getState) => {
+
+		dispatch({
+			type: CLOSE_MODAL_WITH_PHONE
+		});
+
+		return Promise.resolve(getState());
 	};
 };
 
 export const openModalWithPhone = () => {
-	return {
-		type: OPEN_MODAL_WITH_PHONE
+	return (dispatch, getState) => {
+
+		dispatch({
+			type: OPEN_MODAL_WITH_PHONE
+		});
+
+		return Promise.resolve(getState());
 	};
 };
 

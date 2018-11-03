@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ModalWindow from "./ModalWindow";
 import { connect } from "react-redux";
-import { destroy, Field, reduxForm } from "redux-form";
+import { Field, reduxForm } from "redux-form";
+import { createTextMask } from "redux-form-input-masks";
 import { closeDataAgreement, closeModalWithAddress, openDataAgreement } from "../../actionCreators/modalActions";
 import MySubmitButton from "./MySubmitButton";
 
@@ -36,7 +37,11 @@ class ModalWithAddress extends Component {
 	);
 
 	renderModalWithAddress = () => {
-		const { handleSubmit, submitting, valid, destroy } = this.props;
+		const { handleSubmit, submitting, valid } = this.props;
+
+		const phoneMask = createTextMask({
+			pattern: "+7 (999) 999-99-99"
+		});
 
 		return (
 			<div className="modal-with-phone">
@@ -59,7 +64,8 @@ class ModalWithAddress extends Component {
 
 					<form noValidate onSubmit={handleSubmit}>
 						<Field name='name' component={this.renderField} type='text' placeholder="Ваше имя" />
-						<Field name='phone' component={this.renderField} type='text' placeholder="Ваш номер телефона" />
+						<Field name='phone' component={this.renderField} type='tel'
+									 placeholder="Ваш номер телефона" {...phoneMask} />
 						<Field name='years' component={this.renderField} type='text' placeholder="Сколько ребенку лет?" />
 						<Field name='homefound' component={this.renderField} type='text' placeholder="Жильё нашли?" />
 						<Field name='location' component={this.renderField} type='text' placeholder="Населенный пункт" />
@@ -175,9 +181,22 @@ const validate = values => {
 	}
 	if (!values.phone) {
 		errors.phone = "Пожалуйста, введите номер телефона";
-	} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.phone)) {
+	} else if (values.phone.length < 10) {
 		errors.phone = "Неверный формат ввода";
 	}
+
+	if (!values.years) {
+		errors.years = "Пожалуйста, введите значение";
+	}
+
+	if (!values.homefound) {
+		errors.homefound = "Пожалуйста, введите значение";
+	}
+
+	if (!values.location) {
+		errors.location = "Пожалуйста, введите значение";
+	}
+
 	return errors;
 };
 

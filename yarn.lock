@@ -8225,6 +8225,11 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
+redux-form-input-masks@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/redux-form-input-masks/-/redux-form-input-masks-1.2.0.tgz#20de66fb1d20fc52e28c1fc11907454978aa1dd8"
+  integrity sha512-v7uM7IWPBCaRlULiyy+rGaT7t69U0pNeivr/OIyIb7+rznMEMW+IVX8YxG0sWTtWSRWor9DN91KHZ/gddZqjbg==
+
 redux-form@^7.4.2:
   version "7.4.2"
   resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-7.4.2.tgz#d6061088fb682eb9fc5fb9749bd8b102f03154b0"

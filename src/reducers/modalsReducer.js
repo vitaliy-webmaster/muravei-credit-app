@@ -7,7 +7,7 @@ import {
 
 const initialState = {
 	modalWithPhone: {
-		isEnabled: true,
+		isEnabled: false,
 		dataAgreementIsEnabled: false
 	},
 	modalWithAddress: {

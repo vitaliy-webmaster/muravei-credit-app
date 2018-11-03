@@ -9,6 +9,7 @@
 	<link
 		href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto+Condensed:700&amp;subset=cyrillic"
 		rel="stylesheet">
+	<script src="./config.js"></script>
 	<!--
 		Notice the use of %PUBLIC_URL% in the tags above.
 		It will be replaced with the URL of the `public` folder during the build.
@@ -72,5 +73,17 @@
 	</footer>
 </div>
 <div id="modal-with-phone"></div>
+<script src="./config.js"></script>
+<script>
+	(function (global) {
+		var config = {
+			INITIAL_RENDER_SCENARIO
+		};
+
+		global.app = {
+			env: config
+		};
+	})(window);
+</script>
 </body>
 </html>

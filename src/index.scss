@@ -38,6 +38,8 @@ a, a:active, a:hover, a:focus, a:visited {
 */
 
 html, body {
+  position: relative;
+  background: linear-gradient(0deg, #99DFD5 50%, #D1F3ED 100%);
   margin: 0;
   padding: 0;
   min-width: 100%;
@@ -51,14 +53,16 @@ html, body {
 body {
   margin: 0;
   padding: 0;
-  position: relative;
-  background: linear-gradient(0deg, #99DFD5 50%, #D1F3ED 100%);
   font-family: 'Open Sans', sans-serif;
   color: $text-main-color;
   font-weight: 400;
   font-size: 28px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.site-wrapper {
+  height: 100%;
 }
 
 header {
@@ -488,6 +492,10 @@ footer {
   color: #000;
 }
 
+.consult-steps__plus-accent {
+  color: $text-emphasis-color !important;
+}
+
 .modal-with-phone, .modal-with-phone-agreement {
   width: 360px;
 }
@@ -574,10 +582,16 @@ footer {
   padding: 0 50px;
 }
 
-.modal-content input[type="text"], .modal-content input[type="tel"] {
+.plain-form-content form {
+  display: block;
+  max-width: 480px;
+}
+
+.modal-content input[type="text"], .modal-content input[type="tel"],
+.modal-content input[type="number"], .plain-form-content input[type="tel"] {
   width: 100%;
   height: 60px;
-  padding: 22px;
+  padding: 20px 22px;
   margin: 0 auto 8px;
   font-weight: 400;
   line-height: 1;
@@ -589,16 +603,34 @@ footer {
   outline: 0;
 }
 
+.modal-content input[type="tel"], .plain-form-content input[type="tel"] {
+  letter-spacing: 1.5px;
+}
+
+.plain-form-content input[type="tel"] {
+  width: 260px;
+}
+
 .modal-content input + input {
   margin-top: 7px !important;
 }
 
-.modal-content .form-error {
+.modal-content .form-error, .plain-form-content .form-error {
   font-weight: 600;
   line-height: 1.3;
   font-size: 16px;
   color: $text-emphasis-color;
   margin: 0 0 11px;
+}
+
+.plain-form-content .form-error {
+  display: block;
+}
+
+.plain-form-content .my-submit-button {
+  width: 200px;
+  display: block;
+  float: right;
 }
 
 .modal-content input + .my-submit-button {
@@ -613,7 +645,48 @@ footer {
   color: $text-main-color
 }
 
-.modal-with-phone__personal-data-link .personal-data-link {
+.plain-with-phone__personal-data-link {
+  max-width: 480px;
+  padding: 0px;
+  font-weight: 400;
+  line-height: 1.3;
+  font-size: 14px;
+  color: $text-main-color
+}
+
+.modal-with-phone__personal-data-link .personal-data-link, .plain-with-phone__personal-data-link .personal-data-link {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.final-screen {
+  margin: 0 auto;
+  max-width: 880px;
+  min-height: 360px;
+}
+
+.final-screen__ok-text {
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 44px;
+  color: $text-main-color;
+}
+
+.final-screen__ok-subtext {
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: 26px;
+  color: #FFF;
+}
+
+.final-screen__ok-subtext a, .final-screen__ok-subtext a:active,
+.final-screen__ok-subtext a:hover, .final-screen__ok-subtext a:focus {
+  color: $secondary-color;
+}
+
+.final-screen__ok-subtext .font-size-small {
+  padding: 0 10px;
+  font-weight: 400;
+  line-height: 1.3;
+  font-size: 18px;
 }
