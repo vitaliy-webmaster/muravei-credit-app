@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import connect from "react-redux/es/connect/connect";
 import MySecondButton from "./utils/MySecondButton";
 import { Link } from "react-router-dom";
+import { openModalWithPhone } from "../actionCreators/modalActions";
 
 class Summary extends Component {
 
 	handleButtonClick = () => {
-		console.log("Xoчу консультацию!");
+		this.props.openModalWithPhone();
 	};
 
 	render() {
@@ -71,8 +72,6 @@ class Summary extends Component {
 													onButtonClick={() => this.handleButtonClick()}
 													isEnabled={true} />
 				</div>
-
-
 			</div>
 		);
 	}
@@ -82,4 +81,4 @@ const mapStateToProps = (state) => ({
 	data: state.data
 });
 
-export default connect(mapStateToProps, {})(Summary);
+export default connect(mapStateToProps, { openModalWithPhone })(Summary);

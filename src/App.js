@@ -8,6 +8,8 @@ import Final from "./components/Final";
 import StepOne from "./components/StepOne";
 import Start from "./components/Start";
 import Summary from "./components/Summary";
+import ModalWithPhone from "./components/utils/ModalWithPhone";
+import ModalWithAddress from "./components/utils/ModalWithAddress";
 
 class App extends Component {
 	render() {
@@ -26,6 +28,8 @@ class App extends Component {
 						<Route path="/final" component={Final} />
 						<Redirect from='*' to='/' />
 					</Switch>
+					<ModalWithPhone />
+					<ModalWithAddress />
 				</div>
 			</MemoryRouter>
 		);

@@ -8,7 +8,6 @@ import "./index.scss";
 import App from "./App";
 import rootReducer from "./reducers/rootReducer";
 
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
@@ -20,6 +19,8 @@ const store = createStore(
 
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<React.Fragment>
+			<App />
+		</React.Fragment>
 	</Provider>,
 	document.getElementById("root"));
