@@ -12,6 +12,7 @@
     "react-responsive-modal": "^3.5.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.0",
+    "react-spinners": "^0.4.7",
     "redux": "^4.0.1",
     "redux-form": "^7.4.2",
     "redux-form-input-masks": "^1.2.0",

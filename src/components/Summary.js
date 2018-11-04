@@ -7,6 +7,7 @@ import { Field, reduxForm } from "redux-form";
 import MySubmitButton from "./utils/MySubmitButton";
 import { createTextMask } from "redux-form-input-masks";
 import { sendFormDataEmail } from "../actionCreators/mailActions";
+import MySpinner from "./utils/MySpinner";
 
 class Summary extends Component {
 
@@ -24,6 +25,14 @@ class Summary extends Component {
 				this.props.openModalWithPhone();
 		}
 	};
+
+	UNSAFE_componentWillReceiveProps(nextProps) {
+		if (nextProps.mail.sendFormDataStatus === "SUCCESS") {
+			setTimeout(() => {
+				this.props.history.push("/final");
+			}, 1500);
+		}
+	}
 
 	handleFormSubmit = (data) => {
 		this.props.sendFormDataEmail();
@@ -142,12 +151,32 @@ class Summary extends Component {
 					{(this.RENDER_SCENARIO === "THIRD") ? (
 							<React.Fragment>
 								<div className='plain-form-content'>
-									<form noValidate onSubmit={handleSubmit(this.handleFormSubmit)}>
-										<MySubmitButton text="Отправить" isEnabled={(!submitting) && valid} />
-										<Field name='phone' component={this.renderField} type='tel'
-													 placeholder="Ваш номер телефона" {...phoneMask} />
-									</form>
+									{this.props.mail.sendFormDataStatus === "" ? (
+										<form noValidate onSubmit={handleSubmit(this.handleFormSubmit)}>
+											<MySubmitButton text="Отправить" isEnabled={(!submitting) && valid} />
+											<Field name='phone' component={this.renderField} type='tel'
+														 placeholder="Ваш номер телефона" {...phoneMask} />
+										</form>
+									) : null}
+
+									{this.props.mail.sendFormDataStatus === "PENDING" ? (
+										<MySpinner isActive={true} />
+									) : null}
+
+									{this.props.mail.sendFormDataStatus === "SUCCESS" ? (
+										<div className="form-send-success">
+											Заявка успешно отправлена!
+										</div>
+									) : null}
+
+									{this.props.mail.sendFormDataStatus === "FAIL" ? (
+										<div className="form-send-fail">
+											Ошибка при отправке данных!
+										</div>
+									) : null}
+
 								</div>
+
 								<div className="plain-with-phone__personal-data-link">
 									Нажимая отправить, Вы даете <span className='personal-data-link'
 																										onClick={() => this.onPageAgreementLinkClick()}> согласие на
@@ -167,7 +196,8 @@ class Summary extends Component {
 
 const mapStateToProps = (state) => ({
 	data: state.data,
-	form: state.form
+	form: state.form,
+	mail: state.mail
 });
 
 const validate = values => {

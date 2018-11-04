@@ -6,9 +6,20 @@ import { createTextMask } from "redux-form-input-masks";
 import { closeDataAgreement, closeModalWithAddress, openDataAgreement } from "../../actionCreators/modalActions";
 import MySubmitButton from "./MySubmitButton";
 import { sendFormDataEmail } from "../../actionCreators/mailActions";
+import MySpinner from "./MySpinner";
+import { withRouter } from "react-router-dom";
 
 
 class ModalWithAddress extends Component {
+
+	UNSAFE_componentWillReceiveProps(nextProps) {
+		if (nextProps.mail.sendFormDataStatus === "SUCCESS") {
+			setTimeout(() => {
+				this.props.closeModalWithAddress();
+				this.props.history.push("/final");
+			}, 1500);
+		}
+	}
 
 	handleModalClose = () => {
 		this.props.closeModalWithAddress();
@@ -67,15 +78,35 @@ class ModalWithAddress extends Component {
 						Индивидуальная консультация
 					</div>
 
-					<form noValidate onSubmit={handleSubmit(this.handleFormSubmit)}>
-						<Field name='name' component={this.renderField} type='text' placeholder="Ваше имя" />
-						<Field name='phone' component={this.renderField} type='tel'
-									 placeholder="Ваш номер телефона" {...phoneMask} />
-						<Field name='years' component={this.renderField} type='text' placeholder="Сколько ребенку лет?" />
-						<Field name='homefound' component={this.renderField} type='text' placeholder="Жильё нашли?" />
-						<Field name='location' component={this.renderField} type='text' placeholder="Населенный пункт" />
-						<MySubmitButton text="Отправить" isEnabled={(!submitting) && valid} />
-					</form>
+					{this.props.mail.sendFormDataStatus === "" ? (
+
+						<form noValidate onSubmit={handleSubmit(this.handleFormSubmit)}>
+							<Field name='name' component={this.renderField} type='text' placeholder="Ваше имя" />
+							<Field name='phone' component={this.renderField} type='tel'
+										 placeholder="Ваш номер телефона" {...phoneMask} />
+							<Field name='years' component={this.renderField} type='text' placeholder="Сколько ребенку лет?" />
+							<Field name='homefound' component={this.renderField} type='text' placeholder="Жильё нашли?" />
+							<Field name='location' component={this.renderField} type='text' placeholder="Населенный пункт" />
+							<MySubmitButton text="Отправить" isEnabled={(!submitting) && valid} />
+						</form>
+
+					) : null}
+
+					{this.props.mail.sendFormDataStatus === "PENDING" ? (
+						<MySpinner isActive={true} />
+					) : null}
+
+					{this.props.mail.sendFormDataStatus === "SUCCESS" ? (
+						<div className="form-send-success">
+							Заявка успешно отправлена!
+						</div>
+					) : null}
+
+					{this.props.mail.sendFormDataStatus === "FAIL" ? (
+						<div className="form-send-fail">
+							Ошибка при отправке данных!
+						</div>
+					) : null}
 
 					<div className="modal-with-phone__personal-data-link">
 						Нажимая отправить, Вы даете <span className='personal-data-link'
@@ -174,7 +205,8 @@ class ModalWithAddress extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	modals: state.modals
+	modals: state.modals,
+	mail: state.mail
 });
 
 const validate = values => {
@@ -210,9 +242,9 @@ export default reduxForm({
 	shouldValidate: () => true,
 	destroyOnUnmount: true,
 	validate
-})(connect(mapStateToProps, {
+})(withRouter(connect(mapStateToProps, {
 	closeModalWithAddress,
 	openDataAgreement,
 	closeDataAgreement,
 	sendFormDataEmail
-})(ModalWithAddress));
+})(ModalWithAddress)));
