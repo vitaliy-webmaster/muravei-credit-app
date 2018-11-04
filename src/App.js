@@ -14,7 +14,7 @@ import ModalWithAddress from "./components/utils/ModalWithAddress";
 class App extends Component {
 	render() {
 		return (
-			<MemoryRouter>
+			<MemoryRouter basename="">
 				<div className="muravei-app">
 					<Switch>
 						<Route path="/" component={Start} exact={true} />

@@ -1,7 +1,8 @@
-@import "./scss/fonts.scss";
+//@import "./scss/fonts.scss";
 @import "./scss/variables.scss";
 @import "./scss/normalize.scss";
 @import "./scss/utils.scss";
+@import "./scss/animations.scss";
 
 /*
   Styles reset
@@ -57,8 +58,6 @@ body {
   color: $text-main-color;
   font-weight: 400;
   font-size: 28px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .site-wrapper {
@@ -259,29 +258,29 @@ footer {
 }
 
 /* Create a custom radio button */
-.steps-screen label .checkmark {
-  display: block;
-  position: absolute;
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 21px;
-  width: 21px;
-  background-color: #fff;
-  border: 3px solid #C4C4C4;
-  border-radius: 50%;
-}
+//.steps-screen label .checkmark {
+//  display: block;
+//  position: absolute;
+//  right: 30px;
+//  top: 50%;
+//  transform: translateY(-50%);
+//  height: 21px;
+//  width: 21px;
+//  background-color: #fff;
+//  border: 3px solid #C4C4C4;
+//  border-radius: 50%;
+//}
 
 /* On mouse-over, add a grey background color */
-.steps-screen label:hover input ~ .checkmark {
-  background-color: #F6F6F6;
-}
+//.steps-screen label:hover input ~ .checkmark {
+//  background-color: #F6F6F6;
+//}
 
 /* When the radio button is checked, add a background */
-.steps-screen label input:checked ~ .checkmark {
-  background-color: $secondary-color;
-  border-color: $secondary-color;
-}
+//.steps-screen label input:checked ~ .checkmark {
+//  background-color: $secondary-color;
+//  border-color: $secondary-color;
+//}
 
 .steps-screen__left {
   float: left;
@@ -325,17 +324,21 @@ footer {
 .step-indicator-item {
   position: relative;
   display: block;
-  background: $step-indicator-item-color;
+  background-color: $step-indicator-item-color;
   width: 220px;
   height: 100%;
-  //border-radius: 10px;
   box-shadow: 2px 0px 4px #CBCBCB;
   user-select: none;
   cursor: unset;
+  transition: all $css-animations-duration;
+}
+
+.step-indicator-item:first-child {
+  border-radius: 10px 0 0 10px;
 }
 
 .step-indicator-item.indicator-enabled {
-  background: $step-indicator-item-enabled-color;
+  background-color: $step-indicator-item-enabled-color;
   cursor: pointer;
 }
 
@@ -349,6 +352,7 @@ footer {
   font-weight: 600;
   line-height: 1;
   font-size: 24px;
+  text-indent: 25px;
 }
 
 .step-indicator-item.indicator-enabled span {
@@ -407,7 +411,7 @@ footer {
 }
 
 .steps-screen-left__quiz-summary span.q {
-  font-family: HelveticaNeueCyr, sans-serif;
+  font-family: Helvetica, sans-serif;
   font-weight: 300;
   font-size: 20px;
 }
@@ -445,6 +449,7 @@ footer {
   line-height: 1;
   font-size: 40px;
   color: #E5E5E5;
+  transition: all $css-animations-duration;
 }
 
 .steps-screen-left__quiz-again a:hover {
@@ -561,6 +566,10 @@ footer {
 
 .modal-with-phone__text p:first-child {
   margin-bottom: 25px;
+}
+
+.with-address .modal-with-phone__text p:first-child {
+  margin: 15px 0 0;
 }
 
 .modal-with-phone__form-box {

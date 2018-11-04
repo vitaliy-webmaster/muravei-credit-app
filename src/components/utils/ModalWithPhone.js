@@ -5,6 +5,7 @@ import { Field, reduxForm } from "redux-form";
 import { createTextMask } from "redux-form-input-masks";
 import { closeDataAgreement, closeModalWithPhone, openDataAgreement } from "../../actionCreators/modalActions";
 import MySubmitButton from "./MySubmitButton";
+import { sendFormDataEmail } from "../../actionCreators/mailActions";
 
 
 class ModalWithPhone extends Component {
@@ -29,6 +30,10 @@ class ModalWithPhone extends Component {
 	onAgreementLinkClick = () => {
 		this.props.openDataAgreement("modalWithPhone");
 		// this.props.destroy("modalWithPhone");
+	};
+
+	handleFormSubmit = (data) => {
+		this.props.sendFormDataEmail();
 	};
 
 	renderField = ({
@@ -72,7 +77,7 @@ class ModalWithPhone extends Component {
 						Индивидуальная консультация
 					</div>
 
-					<form noValidate onSubmit={handleSubmit}>
+					<form noValidate onSubmit={handleSubmit(this.handleFormSubmit)}>
 						<Field name='name' component={this.renderField} type='text' placeholder="Ваше имя" />
 						<Field name='phone' component={this.renderField} type='tel'
 									 placeholder="Ваш номер телефона" {...phoneMask} />
@@ -200,4 +205,9 @@ export default reduxForm({
 	shouldValidate: () => true,
 	destroyOnUnmount: true,
 	validate
-})(connect(mapStateToProps, { closeModalWithPhone, openDataAgreement, closeDataAgreement })(ModalWithPhone));
+})(connect(mapStateToProps, {
+	closeModalWithPhone,
+	openDataAgreement,
+	closeDataAgreement,
+	sendFormDataEmail
+})(ModalWithPhone));

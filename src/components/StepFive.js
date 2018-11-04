@@ -4,6 +4,7 @@ import MyButton from "./utils/MyButton";
 import connect from "react-redux/es/connect/connect";
 import { calculateCommission } from "../actionCreators/dataActions";
 import StepIndicatorsGroup from "./utils/StepIndicatorsGroup";
+import StepCommissionCounter from "./utils/StepCommissionCounter";
 
 class StepFive extends Component {
 
@@ -41,14 +42,8 @@ class StepFive extends Component {
 				</div>
 
 				<div className="steps-screen__right">
-					<div className="steps-screen__comission">
-						<div className="steps-screen__comission-title">
-							Ваша комиссия составляет:
-						</div>
-						<div className="steps-screen__comission-value">
-							{this.props.data.commission} т.р.
-						</div>
-					</div>
+					<StepCommissionCounter commission={this.props.data.commission}
+																 decimals={(this.props.data.commission % 1) !== 0 ? 1 : 0} />
 					<MyButton myClass='step-5-screen__button' linkTo='/summary' text='Далее'
 										isEnabled={this.props.form.quiz && this.props.form.quiz.values && (Object.keys(this.props.form.quiz.values).indexOf("question-5") !== -1)} />
 				</div>

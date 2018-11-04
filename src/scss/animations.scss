@@ -1,0 +1,115 @@
+
+.steps-screen label input + .checkmark {
+  cursor: pointer;
+  user-select: none;
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  //&::before {
+  //  transition: all 250ms cubic-bezier(0.4, 0.25, 0.3, 1);
+  //  content: '';
+  //  width: 24px;
+  //  height: 24px;
+  //  border-radius: 50%;
+  //  background-color: $secondary-color;
+  //  border: 0px solid $secondary-color;
+  //  font-size: 0;
+  //  position: absolute;
+  //  top: 50%;
+  //  left: 50%;
+  //  transform: translate(-50%, -50%);
+  //}
+
+  &::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #C4C4C4;
+  }
+
+  &::after {
+    transition: all 250ms cubic-bezier(0.4, 0.25, 0.3, 1);
+    content: '';
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: $secondary-color;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.steps-screen label input:checked + .checkmark {
+  //&::before {
+  //  background-color: transparent;
+  //  width: 35px;
+  //  height: 35px;
+  //  border-width: 2px;
+  //}
+
+  &::after {
+    background-color: $secondary-color;
+    width: 24px;
+    height: 24px;
+    border: 2px solid $secondary-color;
+  }
+}
+
+/*******
+  Indicator Arrows
+ */
+
+.arrow-left {
+  display: block;
+  position: absolute;
+  height: 70px;
+  width: 35px;
+  overflow: hidden;
+  z-index: 10;
+  right: -34px;
+}
+
+.arrow-left:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  left: -50px;
+  top: 0px;
+  background-color: #E5E5E5;
+  transform: rotate(45deg);
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  transition: all $css-animations-duration;
+}
+
+.step-indicator-item.indicator-enabled .arrow-left:before {
+  background-color: #99DFD5;
+}
+
+.step-indicator-item.indicator-enabled.with-active-arrow,
+.step-indicator-item.indicator-enabled.with-active-arrow .arrow-left:before {
+  background-color: $secondary-color;
+}
+
+.step-indicator-item.indicator-enabled:hover,
+.step-indicator-item.indicator-enabled:hover .arrow-left:before {
+  background-color: darken(#99DFD5, 8%);
+}
+
+.step-indicator-item.indicator-enabled.with-active-arrow:hover,
+.step-indicator-item.indicator-enabled.with-active-arrow:hover .arrow-left:before {
+  background-color: darken($secondary-color, 6%);
+}

@@ -4,7 +4,10 @@ import { withRouter } from "react-router-dom";
 class StepIndicator extends Component {
 	render() {
 		return (
-			<div className={`step-indicator-item ${this.props.isEnabled ? "indicator-enabled" : ""}`}
+			<div className={
+				`step-indicator-item
+				${this.props.isEnabled ? "indicator-enabled" : ""}
+				${this.props.withActiveArrow ? "with-active-arrow" : ""}`}
 					 onClick={() => {
 						 if (this.props.isEnabled) {
 							 this.props.history.push(this.props.linkTo);
@@ -12,6 +15,7 @@ class StepIndicator extends Component {
 					 }}
 			>
 				{this.props.children}
+				<div className='arrow-left'></div>
 			</div>
 		);
 	}

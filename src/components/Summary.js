@@ -6,6 +6,7 @@ import { openModalWithPhone, openModalWithAddress, openDataAgreement } from "../
 import { Field, reduxForm } from "redux-form";
 import MySubmitButton from "./utils/MySubmitButton";
 import { createTextMask } from "redux-form-input-masks";
+import { sendFormDataEmail } from "../actionCreators/mailActions";
 
 class Summary extends Component {
 
@@ -22,6 +23,10 @@ class Summary extends Component {
 			default:
 				this.props.openModalWithPhone();
 		}
+	};
+
+	handleFormSubmit = (data) => {
+		this.props.sendFormDataEmail();
 	};
 
 	renderField = ({
@@ -137,7 +142,7 @@ class Summary extends Component {
 					{(this.RENDER_SCENARIO === "THIRD") ? (
 							<React.Fragment>
 								<div className='plain-form-content'>
-									<form noValidate onSubmit={handleSubmit}>
+									<form noValidate onSubmit={handleSubmit(this.handleFormSubmit)}>
 										<MySubmitButton text="Отправить" isEnabled={(!submitting) && valid} />
 										<Field name='phone' component={this.renderField} type='tel'
 													 placeholder="Ваш номер телефона" {...phoneMask} />
@@ -183,4 +188,9 @@ export default reduxForm({
 	shouldValidate: () => true,
 	destroyOnUnmount: true,
 	validate
-})(connect(mapStateToProps, { openModalWithPhone, openModalWithAddress, openDataAgreement })(Summary));
+})(connect(mapStateToProps, {
+	openModalWithPhone,
+	openModalWithAddress,
+	openDataAgreement,
+	sendFormDataEmail
+})(Summary));

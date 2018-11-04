@@ -8,6 +8,7 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   outline: 0;
+  transition: all $css-animations-duration;
 }
 
 .my-second-button {
@@ -20,11 +21,18 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   outline: 0;
+  transition: all $css-animations-duration;
 }
 
 .my-button.my-button-enabled, .my-second-button.my-button-enabled {
   background: $secondary-color;
   cursor: pointer;
+}
+
+.my-button.my-button-enabled:hover, .my-second-button.my-button-enabled:hover {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+  background: darken($secondary-color, 6%);
+  //transform: scale(1.01);
 }
 
 .my-button span {
@@ -70,6 +78,11 @@
   outline: 0;
   border: 0;
   cursor: pointer;
+  transition: all $css-animations-duration;
+}
+
+.my-submit-button:hover {
+  background: darken($secondary-color, 6%);
 }
 
 .start-screen__button {
