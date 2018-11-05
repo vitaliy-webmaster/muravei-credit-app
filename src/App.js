@@ -18,7 +18,7 @@ class App extends Component {
 				<div className="muravei-app">
 					<Switch>
 						<Route path="/" component={Start} exact={true} />
-						{/*<Route path="/" component={Summary} />*/}
+						{/*<Route path="/" component={Final} />*/}
 						<Route path="/step-1" component={StepOne} />
 						<Route path="/step-2" component={StepTwo} />
 						<Route path="/step-3" component={StepThree} />

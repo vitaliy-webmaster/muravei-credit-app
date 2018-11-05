@@ -15,29 +15,42 @@ export const sendFormDataEmail = () => {
 			queryObj = queryObj + `commission=${commission}&`;
 		}
 
+		let q1 = "";
+		let q2 = "";
+		let q3 = "";
+		let q4 = "";
+		let q5 = "";
+
 		if (quizValues) {
-			const q1 = quizValues["question-1"] === "answer-2" ? "ДА" : "НЕТ";
-			const q2 = quizValues["question-2"] === "answer-1" ? "ДА" : "НЕТ";
-			const q3 = quizValues["question-3"] === "answer-1" ? "ДА" : "НЕТ";
-			const q4 = quizValues["question-4"] === "answer-1" ? "ДА" : "НЕТ";
-			const q5 = quizValues["question-5"] === "answer-1" ? "ДА" : "НЕТ";
+			q1 = quizValues["question-1"] === "answer-2" ? "ДА" : "НЕТ";
+			q2 = quizValues["question-2"] === "answer-1" ? "ДА" : "НЕТ";
+			q3 = quizValues["question-3"] === "answer-1" ? "ДА" : "НЕТ";
+			q4 = quizValues["question-4"] === "answer-1" ? "ДА" : "НЕТ";
+			q5 = quizValues["question-5"] === "answer-1" ? "ДА" : "НЕТ";
 
 			queryObj = queryObj + `q1=${q1}&q2=${q2}&q3=${q3}&q4=${q4}&q5=${q5}&`;
 		}
 
+		let name = "";
+		let phone = "";
+		let years = "";
+		let homefound = "";
+		let location = "";
+
+
 		if (modalWithPhoneValues) {
-			const name = modalWithPhoneValues.name || "NOTFOUND";
-			const phone = modalWithPhoneValues.phone || "NOTFOUND";
+			name = modalWithPhoneValues.name || "NOTFOUND";
+			phone = modalWithPhoneValues.phone || "NOTFOUND";
 			queryObj = queryObj + `name=${name}&phone=${phone}&`;
 		} else if (modalWithAddressValues) {
-			const name = modalWithAddressValues.name || "NOTFOUND";
-			const phone = modalWithAddressValues.phone || "NOTFOUND";
-			const years = modalWithAddressValues.years || "NOTFOUND";
-			const homefound = modalWithAddressValues.homefound || "NOTFOUND";
-			const location = modalWithAddressValues.location || "NOTFOUND";
+			name = modalWithAddressValues.name || "NOTFOUND";
+			phone = modalWithAddressValues.phone || "NOTFOUND";
+			years = modalWithAddressValues.years || "NOTFOUND";
+			homefound = modalWithAddressValues.homefound || "NOTFOUND";
+			location = modalWithAddressValues.location || "NOTFOUND";
 			queryObj = queryObj + `name=${name}&phone=${phone}&years=${years}&homefound=${homefound}&location=${location}&`;
 		} else if (plainWithPhoneValues) {
-			const phone = plainWithPhoneValues.phone || "NOTFOUND";
+			phone = plainWithPhoneValues.phone || "NOTFOUND";
 			queryObj = queryObj + `phone=${phone}&`;
 		}
 

@@ -21,7 +21,7 @@ class StepTwo extends Component {
 				) : null}
 
 				<div className='step-2-screen__header question-header'>
-					Проценты по займу внесу авансом, <br className='visible-cond' /> до регистрации сделки.
+					Проценты по займу внесу авансом, до регистрации сделки.
 				</div>
 
 				<div className="steps-screen__left">

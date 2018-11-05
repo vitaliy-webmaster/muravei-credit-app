@@ -53,7 +53,7 @@ html, body {
 
 body {
   max-width: 1920px;
-  min-height: 800px;
+  //min-height: 800px;
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
@@ -114,7 +114,8 @@ header {
   line-height: 34px;
 }
 
-.header-info__phone a, .header-info__phone a:active, .header-info__phone a:hover, .header-info__phone a:focus, .header-info__phone a:visited {
+.header-info__phone a, .header-info__phone a:active, .header-info__phone a:hover, .header-info__phone a:focus, .header-info__phone a:visited,
+.footer-info__phone a, .footer-info__phone a:active, .footer-info__phone a:hover, .footer-info__phone a:focus, .footer-info__phone a:visited {
   color: $secondary-color;
   font-weight: 700;
   font-size: 36px;
@@ -122,7 +123,8 @@ header {
   text-transform: uppercase;
 }
 
-.header-info__subtext {
+.header-info__subtext,
+.footer-info__subtext {
   color: $text-main-color;
   font-weight: 300;
   font-size: 14px;
@@ -216,8 +218,9 @@ footer {
   line-height: 1.25;
   font-weight: 600;
   color: $text-question-header-color;
-  margin: 20px 0;
+  margin: 20px auto 20px 0;
   height: 100px;
+  width: 810px
 }
 
 .steps-screen {
@@ -241,6 +244,10 @@ footer {
   margin-bottom: 25px;
   user-select: none;
   cursor: pointer;
+}
+
+.steps-screen label:last-child {
+  margin-bottom: 0;
 }
 
 .steps-screen label .question-text {
@@ -295,7 +302,7 @@ footer {
   max-width: 360px;
   text-align: center;
   position: relative;
-  top: -25px;
+  top: -10px;
   margin-right: 150px;
 }
 
@@ -705,6 +712,10 @@ footer {
   font-weight: 400;
   line-height: 1.3;
   font-size: 18px;
+}
+
+.summary-screen .steps-screen-right {
+  width: 485px;
 }
 
 @import "./scss/media.scss";

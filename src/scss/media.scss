@@ -46,7 +46,7 @@
   }
 
   .summary-screen {
-    min-height: 440px;
+    min-height: 460px;
   }
 
   .consult-steps__plus {
@@ -215,16 +215,24 @@
     top: -5px;
   }
 
+  .modal-content input[type=tel], .plain-form-content input[type=tel] {
+    letter-spacing: 1px;
+  }
+
 }
 
-@media (max-height: 799px) {
+@media (max-height: 799px), (max-width: 1199px) {
+
+  .plain-form-content .spinner-wrapper {
+    margin: -5px 0 15px;
+  }
 
   .header-container {
-    padding: 20px 45px 0;
+    padding: 10px 35px 0;
   }
 
   header {
-    height: 180px;
+    height: 160px;
   }
 
   .header-logo__title {
@@ -272,7 +280,7 @@
   }
 
   .my-button span {
-    font-size: 18px;
+    font-size: 19px;
   }
 
   .my-button {
@@ -284,9 +292,617 @@
   .footer-text {
     font-size: 13px;
     line-height: 20px;
+    padding-bottom: 8px;
   }
 
   .steps-screen {
-    margin: 64px auto 0;
+    margin: 30px auto 0;
   }
+
+  /*******/
+  /* Main steps
+  /********/
+
+  .step-indicators-group {
+    height: 50px;
+  }
+
+  .step-indicator-item span {
+    font-size: 22px;
+  }
+
+  .arrow-left {
+    height: 50px;
+  }
+
+  .arrow-left:before {
+    width: 50px;
+    height: 50px;
+    left: -34px;
+  }
+
+  .question-header {
+    font-size: 28px;
+    line-height: 38px;
+    height: 80px;
+    margin: 15px auto 15px 0;
+  }
+
+  .steps-screen label .question-text {
+    left: 20px;
+    max-width: 170px;
+  }
+
+  .steps-screen label input + .checkmark {
+    right: 35px;
+  }
+
+  .steps-screen label {
+    margin-bottom: 15px;
+    border-right: 8px;
+  }
+
+  .steps-screen__comission-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .steps-screen__comission-value {
+    font-size: 60px;
+  }
+
+  .steps-screen .my-button {
+    width: 190px;
+    height: 50px;
+  }
+
+  .steps-screen {
+    margin: 0 auto 0;
+    height: 390px;
+  }
+
+  footer {
+    height: 145px;
+  }
+
+  .steps-screen-left__header {
+    font-size: 30px;
+  }
+
+  .steps-screen-left__commission span {
+    font-size: 60px;
+  }
+
+  .steps-screen-left__commission {
+    font-size: 28px;
+  }
+
+  .steps-screen-left__quiz-summary {
+    font-size: 20px;
+  }
+
+  .steps-screen-left__quiz-summary ol {
+    margin: 10px 0;
+  }
+
+  .steps-screen-left__quiz-summary span.q {
+    font-size: 17px;
+  }
+
+  .steps-screen-left__quiz-summary span.a {
+    font-weight: 700;
+  }
+
+  .people-percent__value {
+    font-size: 54px;
+  }
+
+  .steps-screen-left__quiz-again {
+    margin: 11px 0 0;
+  }
+
+  .steps-screen-left__quiz-again a, .steps-screen-left__quiz-again a:active, .steps-screen-left__quiz-again a:hover, .steps-screen-left__quiz-again a:focus {
+    font-size: 28px;
+  }
+
+  .steps-screen-right__header {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .steps-screen-right__consult-steps ul {
+    margin: 10px 0;
+  }
+
+  .steps-screen-right__consult-steps ul li {
+    margin: 5px 0;
+  }
+
+  .consult-steps__plus {
+    font-size: 18px;
+  }
+
+  .my-second-button {
+    margin-top: 5px;
+    padding: 0 35px;
+    height: 52px;
+  }
+
+  .my-second-button span {
+    margin: 17px auto 0;
+    font-size: 18px;
+  }
+
+  .summary-screen {
+    margin-top: -15px;
+    min-height: 370px;
+  }
+
+  .modal-with-phone__header-box, .modal-with-phone-agreement__header-box {
+    padding: 15px;
+  }
+
+  .modal-with-phone__header {
+    font-size: 22px;
+  }
+
+  .modal-with-phone__text p {
+    margin: 10px 0 0;
+    font-size: 16px;
+  }
+
+  .modal-with-phone__text p:first-child {
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .with-address .modal-with-phone__text p:first-child {
+    margin: 10px 0 0;
+  }
+
+  .modal-with-phone__form-box .form-box__header {
+    margin: 10px auto;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .modal-content input[type="text"], .modal-content input[type="tel"], .modal-content input[type="number"], .plain-form-content input[type="tel"] {
+    height: 44px;
+    padding: 14px 18px;
+    font-size: 15px;
+    margin: 0 auto 6px;
+  }
+
+  .plain-form-content .my-submit-button {
+    height: 44px;
+  }
+
+  .plain-form-content .form-error {
+    font-size: 13px;
+    margin: 0 0 4px;
+  }
+
+  .modal-content .form-error {
+    font-size: 13px;
+    margin: 0px 0 7px;
+  }
+
+  .my-submit-button {
+    height: 44px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .modal-with-phone__personal-data-link {
+    padding: 15px 40px 20px;
+    font-size: 12px;
+  }
+
+  .modal-with-phone-agreement__header {
+    line-height: 28px;
+    font-size: 24px;
+  }
+
+  .modal-with-phone-agreement__header-text {
+    font-size: 17px;
+  }
+
+  .final-screen__ok-text {
+    font-size: 28px;
+    line-height: 36px;
+    margin-bottom: 5px;
+  }
+
+  .final-screen__ok-subtext {
+    font-size: 22px;
+    max-width: 810px;
+  }
+
+  .final-screen__ok-subtext .font-size-small {
+    line-height: 20px;
+    font-size: 16px;
+  }
+
+  .final-screen {
+    min-height: 140px;
+  }
+
+  .form-send-success, .form-send-fail {
+    font-size: 20px;
+    margin: 20px 20px 12px;
+  }
+}
+
+@media (max-height: 699px) {
+  body {
+    min-height: 699px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .start-screen {
+    max-width: 800px;
+  }
+
+  .start-screen__right {
+    max-width: 350px;
+  }
+
+  .start-screen > h2 {
+    width: 440px;
+  }
+
+  .steps-screen {
+    max-width: 800px;
+    position: relative;
+    left: -15px;
+  }
+
+  .step-indicator-item span {
+    font-size: 19px;
+  }
+
+  .step-indicator-item span {
+    text-indent: 20px;
+  }
+
+  .steps-screen__right {
+    float: right;
+    margin-right: 50px;
+  }
+
+  .summary-screen {
+    max-width: 800px;
+  }
+
+  .steps-screen-left {
+    width: 400px;
+  }
+
+  .summary-screen .steps-screen-right {
+    width: 370px;
+  }
+
+  .steps-screen-left__header {
+    font-size: 28px;
+  }
+
+  .steps-screen-left__commission {
+    font-size: 25px;
+  }
+
+  .steps-screen-left__commission span {
+    font-size: 50px;
+  }
+
+  .people-percent__text {
+    max-width: 360px;
+  }
+
+  .steps-screen-right__header {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .steps-screen-right__consult-steps ul li {
+    margin: 0;
+  }
+
+  .consult-steps__plus {
+    font-size: 17px;
+  }
+
+  .steps-screen-left__quiz-summary ol {
+    margin: 15px 0;
+  }
+
+  .steps-screen-left__quiz-summary li {
+    line-height: 1.4;
+    margin: 2px 0;
+  }
+
+  .plain-form-content input[type="tel"] {
+    width: 180px;
+  }
+
+  .final-screen {
+    max-width: 680px;
+  }
+
+  .final-screen__ok-text {
+    font-size: 26px;
+    line-height: 32px;
+  }
+
+  .final-screen__ok-subtext {
+    font-size: 20px;
+    max-width: 680px;
+  }
+
+  .final-screen__ok-subtext .font-size-small {
+    line-height: 18px;
+    font-size: 15px;
+    display: block;
+    text-align: left;
+    padding: 0;
+    margin-top: 3px;
+  }
+}
+
+@media (max-width: 991px) {
+
+  .start-screen {
+    margin-top: -35px;
+    max-width: 769px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .start-screen > h2 {
+    order: 1;
+    font-size: 28px;
+    text-align: left;
+    width: 370px;
+    margin: 15px auto 20px;
+  }
+
+  .start-screen__right {
+    float: none;
+    order: 2;
+    max-width: 450px;
+    width: 450px;
+    position: relative;
+    left: 20px;
+  }
+
+  .start-screen__right > img {
+    max-width: 230px;
+    float: left;
+  }
+
+  .start-screen__right > .commissions-info {
+    width: 200px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .commissions-info__percent {
+    float: none;
+    margin: 0;
+    display: inline-block;
+  }
+
+  .my-button {
+    order: 3;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+  }
+
+  .my-button span {
+    font-size: 18px;
+  }
+
+  .header-container {
+    justify-content: center;
+  }
+
+  header {
+    height: 140px;
+  }
+
+  .header-title, .header-info, .footer-text { display: none }
+
+  .footer-info {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+  }
+
+  .start-screen > h1 {
+    display: block !important;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #FFF;
+    font-size: 20px;
+    text-transform: uppercase;
+    line-height: 26px;
+    max-width: 400px;
+  }
+
+  .mobile-only-991 {
+    display: inline !important;
+  }
+
+  .steps-screen {
+    height: 380px;
+    max-width: 479px;
+    top: -15px;
+  }
+
+  .step-indicator-item span:first-child {
+    display: none;
+  }
+
+  .step-indicator-item span {
+    text-indent: 28px;
+  }
+
+  .step-indicator-item:first-child span {
+    text-indent: 20px;
+  }
+
+  .question-header {
+    font-size: 24px;
+    line-height: 30px;
+    height: 60px;
+    width: 100%;
+    margin: 15px auto 15px 0;
+  }
+
+  .steps-screen__right {
+    float: right;
+    margin-right: 0;
+    max-width: 200px;
+    text-align: left;
+  }
+
+  .steps-screen__comission-title {
+    font-size: 24px;
+    line-height: 30px;
+    max-width: 170px;
+  }
+
+  .steps-screen__comission-value {
+    font-size: 56px;
+    margin: 15px 0 20px;
+    width: 200px;
+  }
+
+  .summary-screen {
+    max-width: 479px;
+    margin-top: -34px;
+  }
+
+  .summary-screen .steps-screen-left {
+    text-align: center;
+  }
+
+  .steps-screen-left__quiz-summary, .steps-screen-left__people-percent {
+    display: none;
+  }
+
+  .steps-screen-left__header {
+    font-size: 24px;
+    display: inline-block;
+    float: none;
+    color: #FFF;
+    width: 190px;
+    text-align: left;
+    vertical-align: top;
+    margin-top: 8px;
+  }
+
+  .steps-screen-left__commission {
+    font-size: 25px;
+    display: inline-block;
+    float: none;
+    width: 160px;
+    vertical-align: top;
+  }
+
+  .steps-screen-left__commission span {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .steps-screen-left {
+    width: 479px;
+    float: none;
+  }
+
+  .steps-screen-left__quiz-again {
+    margin: 5px auto 0;
+    width: 350px;
+    text-align: left;
+  }
+
+  .steps-screen-left__quiz-again a, .steps-screen-left__quiz-again a:active, .steps-screen-left__quiz-again a:hover, .steps-screen-left__quiz-again a:focus {
+    font-size: 24px;
+    color: #FFF;
+  }
+
+  .summary-screen .steps-screen-right {
+    width: 350px;
+    float: none;
+    margin: 5px auto 5px;
+  }
+
+  .steps-screen-right__header {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .steps-screen-right__consult-steps ul li {
+    font-size: 14px;
+  }
+
+  .consult-steps__plus {
+    font-size: 15px;
+  }
+
+  .steps-screen-right__consult-steps ul {
+    margin: 3px 0;
+  }
+
+  .summary-screen .my-second-button {
+    display: block;
+    width: 245px;
+    margin: 0 auto;
+    height: 50px;
+    position: relative;
+  }
+
+  .my-second-button span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: -1px auto 0;
+    font-size: 17px;
+    line-height: 17px;
+  }
+
+  .plain-form-content .my-submit-button {
+    width: 160px;
+  }
+
+  .plain-form-content {
+    margin-top: -10px;
+  }
+
+  .footer-info__phone a, .footer-info__phone a:active,
+  .footer-info__phone a:hover, .footer-info__phone a:focus, .footer-info__phone a:visited {
+    font-size: 36px;
+    line-height: 40px;
+  }
+
+  footer {
+    height: 134px;
+  }
+
+  .plain-form-content .spinner-wrapper {
+    margin: 0px 0 10px;
+  }
+
 }

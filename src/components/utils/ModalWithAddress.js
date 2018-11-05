@@ -15,7 +15,7 @@ class ModalWithAddress extends Component {
 	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.mail.sendFormDataStatus === "SUCCESS") {
 			setTimeout(() => {
-				this.props.closeModalWithAddress();
+				// this.props.closeModalWithAddress();
 				this.props.history.push("/final");
 			}, 1500);
 		}
@@ -213,9 +213,8 @@ const validate = values => {
 	const errors = {};
 	if (!values.name) {
 		errors.name = "Пожалуйста, введите имя";
-	} else if (values.name.length < 3) {
-		errors.name = "Имя должно содержать минимум 3 симв.";
 	}
+
 	if (!values.phone) {
 		errors.phone = "Пожалуйста, введите номер телефона";
 	} else if (values.phone.length < 10) {

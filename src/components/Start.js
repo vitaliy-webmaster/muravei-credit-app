@@ -16,8 +16,9 @@ class Start extends Component {
 						</div>
 					</div>
 				</div>
+				<h1 style={{ display: "none" }}>Займы на жильё под материнский капитал</h1>
 				<h2>
-					Выбери свою комиссию от 30 до 45 т.р.
+					Выбери свою <br className="mobile-only-991" style={{ display: "none" }} />комиссию от 30 до 45 т.р.
 				</h2>
 				<div className="clearfix"></div>
 				<MyButton myClass='start-screen__button' linkTo='/step-1' text='Начать расчёт' isEnabled={true} />
