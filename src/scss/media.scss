@@ -1,0 +1,292 @@
+@media (max-height: 935px) {
+
+  .steps-screen-left__header {
+    font-size: 34px;
+    margin-bottom: 5px;
+  }
+
+  .steps-screen-left__commission {
+    font-size: 34px;
+  }
+
+  .steps-screen-left__commission span {
+    font-weight: 700;
+    line-height: 1;
+    font-size: 80px;
+  }
+
+  .steps-screen-left__quiz-summary {
+    font-size: 22px;
+  }
+
+  .steps-screen-left__quiz-summary span.q {
+    font-size: 18px;
+  }
+
+  .people-percent__value {
+    font-size: 58px;
+  }
+
+  .people-percent__text {
+    font-size: 18px;
+    padding-top: 3px;
+  }
+
+  .steps-screen-left__quiz-again a, .steps-screen-left__quiz-again a:active, .steps-screen-left__quiz-again a:hover, .steps-screen-left__quiz-again a:focus {
+    font-size: 34px;
+  }
+
+  .steps-screen-right__header {
+    font-size: 30px;
+  }
+
+  .steps-screen-right__consult-steps ul li {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .summary-screen {
+    min-height: 440px;
+  }
+
+  .consult-steps__plus {
+    max-width: 410px;
+    font-size: 19px;
+  }
+
+  .plain-form-content form {
+    max-width: 430px;
+  }
+
+  .plain-form-content input[type="tel"] {
+    width: 240px;
+  }
+
+  .modal-content input[type="text"], .modal-content input[type="tel"], .modal-content input[type="number"], .plain-form-content input[type="tel"] {
+    height: 50px;
+    padding: 15px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .modal-content .form-error, .plain-form-content .form-error {
+    font-size: 14px;
+  }
+
+  .plain-form-content .my-submit-button {
+    width: 180px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .my-second-button {
+    margin-top: 7px;
+    padding: 0 40px;
+    height: 60px;
+  }
+
+  .my-second-button span {
+    margin: 18px auto 0;
+    text-align: center;
+    font-size: 21px;
+  }
+
+  .modal-with-phone__header {
+    font-size: 27px;
+  }
+
+  .modal-with-phone__text p {
+    font-size: 16px;
+  }
+
+  .modal-with-phone__form-box .form-box__header {
+    font-size: 22px;
+    max-width: 260px;
+  }
+
+  .my-submit-button {
+    height: 50px;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+
+  .modal-with-phone__personal-data-link {
+    padding: 20px 32px 25px;
+    font-size: 13px;
+  }
+
+  .modal-with-phone, .modal-with-phone-agreement {
+    width: 340px;
+  }
+
+  .modal-with-phone-agreement__header {
+    line-height: 1.3;
+    font-size: 27px;
+  }
+
+  .modal-with-phone-agreement__header-text {
+    font-size: 18px;
+  }
+
+  .final-screen__ok-text {
+    font-size: 34px;
+    margin-bottom: 15px;
+  }
+
+  .final-screen__ok-subtext {
+    font-size: 24px;
+  }
+
+  .final-screen {
+    min-height: 200px;
+  }
+
+}
+
+@media (max-height: 850px) {
+  .question-header {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .steps-screen label {
+    width: 240px;
+    height: 66px;
+  }
+
+  .steps-screen label .question-text {
+    left: 25px;
+  }
+
+  .steps-screen label input + .checkmark::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+  }
+
+  .steps-screen label input:checked + .checkmark::after {
+    width: 20px;
+    height: 20px;
+  }
+
+  .steps-screen__comission-title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .steps-screen__comission-value {
+    font-size: 64px;
+  }
+
+  .steps-screen .my-button {
+    width: 210px;
+    height: 60px;
+    border-radius: 8px;
+  }
+
+  .steps-screen .my-button span {
+    font-size: 18px;
+  }
+
+  .step-indicators-group {
+    height: 60px;
+  }
+
+  .arrow-left {
+    height: 60px;
+  }
+
+  .arrow-left:before {
+    width: 60px;
+    height: 60px;
+    left: -40px;
+  }
+
+  .steps-screen {
+    margin: 80px auto 0;
+  }
+
+  .visible-cond {
+    display: none;
+  }
+
+  .steps-screen__right {
+    top: -5px;
+  }
+
+}
+
+@media (max-height: 799px) {
+
+  .header-container {
+    padding: 20px 45px 0;
+  }
+
+  header {
+    height: 180px;
+  }
+
+  .header-logo__title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .header-logo__subtitle {
+    font-size: 11px;
+  }
+
+  .header-title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .header-info__phone a, .header-info__phone a:active, .header-info__phone a:hover, .header-info__phone a:focus, .header-info__phone a:visited {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .header-info__subtext {
+    font-size: 13px;
+  }
+
+  .start-screen > h2 {
+    display: inline-block;
+    font-size: 36px;
+    width: 460px;
+  }
+
+  .start-screen__right > img {
+    max-height: 220px;
+  }
+
+  .commissions-info__percent {
+    font-size: 52px;
+    margin-top: 0;
+  }
+
+  .commissions-info__explain {
+    font-size: 19px;
+    line-height: 1.25;
+    padding-top: 2px;
+  }
+
+  .my-button span {
+    font-size: 18px;
+  }
+
+  .my-button {
+    width: 210px;
+    height: 60px;
+    border-radius: 8px;
+  }
+
+  .footer-text {
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .steps-screen {
+    margin: 64px auto 0;
+  }
+}

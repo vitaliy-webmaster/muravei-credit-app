@@ -249,6 +249,7 @@ if ($isPost) {
     </body>
     </html>';
 
+// khmelnikov.andrey@gmail.com
     $mail = mail("vitaliy.webmaster@gmail.com", $subject, $message,
         "From: <webmaster@webmaster-dev.kl.com.ua> \r\n"."Reply-To: webmaster@webmaster-dev.kl.com.ua \r\n"."X-Mailer: PHP/".phpversion()." \r\n"."Content-Type: text/html; charset=UTF-8\r\n");
     if ($mail)
