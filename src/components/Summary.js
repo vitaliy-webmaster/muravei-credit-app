@@ -125,7 +125,8 @@ class Summary extends Component {
 					<div className="clearfix"></div>
 
 					<div className='steps-screen-left__quiz-again'>
-						<Link to='/step-1'>🡨 Пройти еще раз</Link>
+						<Link to='/step-1'>
+							 Пройти еще раз</Link>
 					</div>
 				</div>
 
