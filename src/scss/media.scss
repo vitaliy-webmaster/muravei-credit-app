@@ -468,7 +468,7 @@
 
   .modal-content input[type="text"], .modal-content input[type="tel"], .modal-content input[type="number"], .plain-form-content input[type="tel"] {
     height: 44px;
-    padding: 14px 18px;
+    padding: 13px 18px;
     font-size: 15px;
     margin: 0 auto 6px;
   }
@@ -623,6 +623,7 @@
 
   .plain-form-content input[type="tel"] {
     width: 180px;
+    padding: 13px 15px;
   }
 
   .final-screen {
@@ -650,6 +651,12 @@
 }
 
 @media (max-width: 991px) {
+
+  .steps-screen-left__quiz-again .fa-arrow-left {
+    margin-right: 8px;
+    font-size: 24px;
+    top: 1px;
+  }
 
   .start-screen {
     margin-top: -35px;
@@ -907,6 +914,24 @@
 }
 
 @media (max-width: 599px) {
+
+  .modal-overlay:before {
+    display: none;
+  }
+
+  .modal-overlay {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .close-mobile-only-599 {
+    display: block !important;
+    width: 28px; height: 28px;
+    background: transparent url('/images/close.png') center center no-repeat;
+    position: absolute;
+    top: 12px; right: 12px;
+    cursor: pointer;
+  }
+
   header {
     height: 100px;
   }
@@ -1288,16 +1313,16 @@
 
   .modal-content input[type="text"], .modal-content input[type="tel"], .modal-content input[type="number"] {
     height: 50px;
-    padding: 14px 18px;
+    padding: 13px 18px;
     font-size: 16px;
     margin: 0 auto 6px;
-    border-radius: 0;
+    border-radius: 2px;
   }
 
   .modal-content .my-submit-button {
     height: 50px;
     font-size: 17px;
-    border-radius: 0px;
+    border-radius: 2px;
   }
 
   .modal-with-phone-agreement-body {
@@ -1320,5 +1345,16 @@
 
   .with-address .modal-with-phone__text p:first-child {
     margin: 12px 0 0;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  body {
+    min-height: 660px;
+  }
+
+  .start-screen > h2 {
+    margin: 5px auto 10px;
+    line-height: 30px;
   }
 }

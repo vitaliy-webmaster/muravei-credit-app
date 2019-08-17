@@ -100,7 +100,17 @@ Modal window
 }
 
 .modal-overlay {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.5) url('/images/close-big-resize.png') top 15px right 15px no-repeat;
+}
+
+.modal-overlay:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 15px; right: 15px;
+  background: transparent;
+  cursor: pointer;
+  width: 43px; height: 42px;
 }
 
 .modal-content {

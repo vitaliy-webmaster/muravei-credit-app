@@ -8,6 +8,7 @@ import MySubmitButton from "./MySubmitButton";
 import { sendFormDataEmail } from "../../actionCreators/mailActions";
 import MySpinner from "./MySpinner";
 import { withRouter } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 class ModalWithPhone extends Component {
@@ -17,9 +18,8 @@ class ModalWithPhone extends Component {
 	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.mail.sendFormDataStatus === "SUCCESS") {
 			setTimeout(() => {
-				// this.props.closeModalWithPhone();
-				this.props.history.push("/final");
-			}, 1500);
+				window.location.href = "/mailsended.html";
+			}, 500);
 		}
 	}
 
@@ -71,7 +71,11 @@ class ModalWithPhone extends Component {
 		return (
 			<div className="modal-with-phone">
 				<div className="modal-with-phone__header-box">
-
+					<div className="close-mobile-only-599" style={{ display: "none" }}
+							 onClick={() => {
+								 this.handleModalClose();
+							 }}
+					></div>
 					<div className="modal-with-phone__header">
 						КПК “Муравей”
 					</div>
@@ -97,20 +101,10 @@ class ModalWithPhone extends Component {
 						</form>
 					) : null}
 
-					{this.props.mail.sendFormDataStatus === "PENDING" ? (
+					{(this.props.mail.sendFormDataStatus === "PENDING")
+					|| (this.props.mail.sendFormDataStatus === "SUCCESS")
+					|| (this.props.mail.sendFormDataStatus === "FAIL") ? (
 						<MySpinner isActive={true} />
-					) : null}
-
-					{this.props.mail.sendFormDataStatus === "SUCCESS" ? (
-						<div className="form-send-success">
-							Заявка успешно отправлена!
-						</div>
-					) : null}
-
-					{this.props.mail.sendFormDataStatus === "FAIL" ? (
-						<div className="form-send-fail">
-							Ошибка при отправке данных!
-						</div>
 					) : null}
 
 
@@ -134,7 +128,7 @@ class ModalWithPhone extends Component {
 					</div>
 
 					<div className="modal-with-phone-agreement__header-text">
-						<div onClick={() => this.onAgreementCloseClick()}>🡨 &nbsp;Назад к форме</div>
+						<div onClick={() => this.onAgreementCloseClick()}><FontAwesomeIcon icon="arrow-left" /> Назад к форме</div>
 					</div>
 				</div>
 

@@ -21,7 +21,7 @@ if ($isPost) {
     $homefound = filter_var($_POST["homefound"], FILTER_SANITIZE_STRING);
     $location = filter_var($_POST["location"], FILTER_SANITIZE_STRING);
 
-    $subject ="Новая заявка Муравей";
+    $subject ="Новая заявка на консультацию";
 
     $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
     <html xmlns="http://www.w3.org/1999/xhtml">
@@ -249,9 +249,8 @@ if ($isPost) {
     </body>
     </html>';
 
-// khmelnikov.andrey@gmail.com
     $mail = mail("vitaliy.webmaster@gmail.com", $subject, $message,
-        "From: <webmaster@webmaster-dev.kl.com.ua> \r\n"."Reply-To: webmaster@webmaster-dev.kl.com.ua \r\n"."X-Mailer: PHP/".phpversion()." \r\n"."Content-Type: text/html; charset=UTF-8\r\n");
+        "From: КПК Муравей <test@kpkmuravey.ru> \r\n"."Reply-To: test@kpkmuravey.ru \r\n"."X-Mailer: PHP/".phpversion()." \r\n"."Content-Type: text/html; charset=UTF-8\r\n");
     if ($mail)
     {
         echo "Success";
@@ -259,19 +258,5 @@ if ($isPost) {
         echo "Error";
     }
 
-
-
-//	$guid = trim(filter_var($_POST["guid"], FILTER_SANITIZE_STRING));
-//	$barcode = trim(filter_var($_POST["barcode"], FILTER_SANITIZE_STRING));
-//	$culture = trim(filter_var($_POST["culture"], FILTER_SANITIZE_STRING));
-//	//echo $guid." \r\n".$barcode." \r\n".$culture;
-//	$client = new SoapClient('http://services.ukrposhta.ua/barcodestatistic/barcodestatistic.asmx?WSDL');
-//	$params = new stdClass();
-//	$params->guid = $guid;
-//	$params->barcode = $barcode;
-//	$params->culture = $culture;
-//	$result = $client->GetBarcodeInfo($params)->GetBarcodeInfoResult;
-//	// header('Content-Type: application/json');
-//	echo json_encode((array)$result);
 }
 ?>

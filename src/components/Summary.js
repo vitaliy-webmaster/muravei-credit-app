@@ -4,6 +4,8 @@ import MySecondButton from "./utils/MySecondButton";
 import { Link } from "react-router-dom";
 import { openModalWithPhone, openModalWithAddress, openDataAgreement } from "../actionCreators/modalActions";
 import { Field, reduxForm } from "redux-form";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import MySubmitButton from "./utils/MySubmitButton";
 import { createTextMask } from "redux-form-input-masks";
 import { sendFormDataEmail } from "../actionCreators/mailActions";
@@ -29,8 +31,8 @@ class Summary extends Component {
 	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.mail.sendFormDataStatus === "SUCCESS") {
 			setTimeout(() => {
-				this.props.history.push("/final");
-			}, 1500);
+				window.location.href = "/mailsended.html";
+			}, 500);
 		}
 	}
 
@@ -64,6 +66,17 @@ class Summary extends Component {
 			pattern: "+7 (999) 999-99-99",
 			guide: true
 		});
+
+		const renderPercent = () => {
+			const { commission } = this.props.data;
+			if (commission >= 30 && commission <= 35) {
+				return "34";
+			} else if (commission >= 36 && commission <= 41.5) {
+				return "58";
+			} else if (commission >= 42 && commission <= 45) {
+				return "87";
+			}
+		};
 
 		return (
 			<div className='summary-screen'>
@@ -114,7 +127,7 @@ class Summary extends Component {
 
 					<div className='steps-screen-left__people-percent'>
 						<div className="people-percent__value">
-							52%
+							{`${renderPercent()}%`}
 						</div>
 
 						<div className="people-percent__text">
@@ -126,7 +139,7 @@ class Summary extends Component {
 
 					<div className='steps-screen-left__quiz-again'>
 						<Link to='/step-1'>
-							 Пройти еще раз</Link>
+							<FontAwesomeIcon icon="arrow-left" />Пройти еще раз</Link>
 					</div>
 				</div>
 
@@ -160,20 +173,10 @@ class Summary extends Component {
 										</form>
 									) : null}
 
-									{this.props.mail.sendFormDataStatus === "PENDING" ? (
+									{(this.props.mail.sendFormDataStatus === "PENDING")
+									|| (this.props.mail.sendFormDataStatus === "SUCCESS")
+									|| (this.props.mail.sendFormDataStatus === "FAIL") ? (
 										<MySpinner isActive={true} />
-									) : null}
-
-									{this.props.mail.sendFormDataStatus === "SUCCESS" ? (
-										<div className="form-send-success">
-											Заявка успешно отправлена!
-										</div>
-									) : null}
-
-									{this.props.mail.sendFormDataStatus === "FAIL" ? (
-										<div className="form-send-fail">
-											Ошибка при отправке данных!
-										</div>
 									) : null}
 
 								</div>

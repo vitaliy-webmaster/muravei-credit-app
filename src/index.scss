@@ -53,7 +53,7 @@ html, body {
 
 body {
   max-width: 1920px;
-  //min-height: 800px;
+  //min-height: 560px;
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
@@ -716,6 +716,25 @@ footer {
 
 .summary-screen .steps-screen-right {
   width: 485px;
+}
+
+.steps-screen-left__quiz-again .fa-arrow-left {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 30px;
+  line-height: 1;
+  position: relative;
+  top: 2px;
+}
+
+.modal-with-phone-agreement__header-text .fa-arrow-left {
+  display: inline-block;
+  margin-right: 4px;
+  font-size: inherit;
+}
+
+.modal-with-phone__header-box, .modal-with-phone-agreement__header-box {
+  position: relative;
 }
 
 @import "./scss/media.scss";

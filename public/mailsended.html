@@ -2,24 +2,12 @@
 <html lang="ru">
 <head>
 	<meta charset="utf-8">
-	<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+	<link rel="shortcut icon" href="/favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
 	<meta name="theme-color" content="#000000">
 
-
-	<!--<link-->
-	<!--href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto+Condensed:700&amp;subset=cyrillic"-->
-	<!--rel="stylesheet">-->
 	<link rel="stylesheet" href="./styles.css" type="text/css">
-	<!--
-		Notice the use of %PUBLIC_URL% in the tags above.
-		It will be replaced with the URL of the `public` folder during the build.
-		Only files inside the `public` folder can be referenced from the HTML.
 
-		Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-		work correctly both with client-side routing and a non-root public URL.
-		Learn how to configure a non-root public URL by running `npm run build`.
-	-->
 	<title>Муравей - Кредитный Потребительский Кооператив</title>
 </head>
 <body>
@@ -58,7 +46,22 @@
 
 		<section class="react-widget">
 			<div class="main-container">
-				<div id="root"></div>
+				<div id="root">
+
+					<div class='final-screen'>
+						<div class="final-screen__ok-text">
+							Ок! Ваша заявка уже на нашей почте. В самое ближайшее время специалист свяжется с вами.
+						</div>
+						<div class="final-screen__ok-subtext">
+							Если не хотите ждать, вы можете позвонить по БЕСПЛАТНОМУ номеру <a href="tel:88002225026">8 (800)
+							222-50-26</a> прямо сейчас.
+							<span class='font-size-small'>
+						(нажмите на телефон чтобы позвонить)
+					</span>
+						</div>
+					</div>
+
+				</div>
 			</div>
 		</section>
 	</main>
@@ -81,18 +84,6 @@
 		</div>
 	</footer>
 </div>
-<div id="modal-with-phone"></div>
-<script src="./config.js"></script>
-<script>
-	(function (global) {
-		var config = {
-			INITIAL_RENDER_SCENARIO
-		};
 
-		global.app = {
-			env: config
-		};
-	})(window);
-</script>
 </body>
 </html>

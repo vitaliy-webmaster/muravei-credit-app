@@ -1,4 +1,4 @@
-import { SEND_FORMDATA_EMAIL_START, SEND_FORMDATA_EMAIL_SUCCESS, SEND_FORMDATA_EMAIL_FAIL } from "./types";
+import { SEND_FORMDATA_EMAIL_START, SEND_FORMDATA_EMAIL_SUCCESS } from "./types";
 import axios from "axios";
 
 export const sendFormDataEmail = () => {

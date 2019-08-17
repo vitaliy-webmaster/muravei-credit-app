@@ -1,6 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { closeModalWithAddress, closeModalWithPhone } from "../actionCreators/modalActions";
 
 class Final extends Component {
+
+	componentDidMount() {
+		this.props.closeModalWithAddress();
+		this.props.closeModalWithPhone();
+	}
+
 	render() {
 		return (
 			<div className='final-screen'>
@@ -19,4 +27,7 @@ class Final extends Component {
 	}
 }
 
-export default Final;
+export default connect(null, {
+	closeModalWithAddress,
+	closeModalWithPhone
+})(Final);
